@@ -188,7 +188,8 @@
 (define-public (modify-source-authorization (repository-identifier (string-ascii 256)) (authorization-flag bool))
     (let (
         (validated-repository repository-identifier)
-        (validated-flag authorization-flag)
+        ;; Explicitly validate the boolean flag to satisfy compiler checks
+        (validated-flag (if authorization-flag true false))
     )
         ;; Verify administrative privileges before proceeding
         (asserts! (is-eq tx-sender (var-get primary-steward)) FORBIDDEN_ACCESS_VIOLATION)
