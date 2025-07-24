@@ -1,0 +1,23 @@
+[project]
+name = "fdg"
+authors = []
+description = ""
+telemetry = false
+requirements = []
+cache_dir = "/home/runner/workspace/fdg/./.requirements"
+boot_contracts = ["pox", "costs-v2", "bns"]
+[contracts.Crystal-Nexus-Analytics]
+path = "contracts/Crystal-Nexus-Analytics.clar"
+
+[repl]
+costs_version = 2
+parser_version = 2
+
+[repl.analysis]
+passes = ["check_checker"]
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
